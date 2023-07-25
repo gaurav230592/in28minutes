@@ -1,4 +1,4 @@
-version: 0.3
+version: 0.2
 
 phases:
   install:
@@ -11,6 +11,7 @@ phases:
       - echo Entered the pre_build phase...
   build:
     commands:
+      - export BUILD_VERSION=$(date +%Y.%m.%d).$CODEBUILD_BUILD_NUMBER
       - mvn package
       - echo Build started
   post_build:
@@ -19,4 +20,6 @@ phases:
 
 artifacts:
   files:
-    - target/02-spring-boot-todo-rest-api-h2-pipeline-0.0.1-SNAPSHOT.jar
+    - '**/*'
+    base-directory: target/02-spring-boot-todo-rest-api-h2-pipeline-0.0.1-SNAPSHOT.jar
+    discard-paths: yes
