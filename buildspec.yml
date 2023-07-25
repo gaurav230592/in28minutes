@@ -13,6 +13,7 @@ phases:
     commands:
       - export BUILD_VERSION=$(date +%Y.%m.%d).$CODEBUILD_BUILD_NUMBER
       - mvn package
+      - aws elasticbeanstalk update-environment --application-name "02-spring-boot-todo-rest-api-h2-pipeline" --version-label "spring-boot-h2-02" --environment-name "02-spring-boot-todo-rest-api-h2-dev"
       - echo Build started
   post_build:
     commands:
