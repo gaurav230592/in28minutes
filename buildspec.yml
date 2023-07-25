@@ -20,6 +20,4 @@ phases:
 
 artifacts:
   files:
-    - '**/*'
-    base-directory: target/02-spring-boot-todo-rest-api-h2-pipeline-0.0.1-SNAPSHOT.jar
-    discard-paths: yes
+    - target/02-spring-boot-todo-rest-api-h2-pipeline-0.0.1-SNAPSHOT.jar
